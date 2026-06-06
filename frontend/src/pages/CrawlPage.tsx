@@ -1,24 +1,27 @@
 import { useParams } from "react-router-dom";
 import { CrawlForm } from "../components/CrawlForm";
 import { LiveCrawl } from "../components/LiveCrawl";
+import { PageHeader } from "../components/PageHeader";
 
 export function CrawlPage() {
   const { jobId } = useParams();
 
   if (jobId) {
     return (
-      <div className="max-w-6xl mx-auto px-8 py-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
         <LiveCrawl jobId={jobId} />
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-8">
-      <div className="mb-6">
-        <h1 className="text-xl font-semibold text-gray-900">New Crawl</h1>
-        <p className="text-sm text-gray-500 mt-0.5">Paste seed URLs and watch decisions stream live</p>
-      </div>
+    <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
+      <PageHeader
+        label="New crawl"
+        title="Paste seeds,"
+        accent="watch decisions stream."
+        subtitle="Trap checks, bot detection, dedup, and quality scoring — visible in real time."
+      />
       <CrawlForm />
     </div>
   );

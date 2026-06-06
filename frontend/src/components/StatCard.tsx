@@ -7,10 +7,14 @@ interface Props {
 
 export function StatCard({ label, value, sub, accent }: Props) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-card">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">{label}</p>
-      <p className={`text-2xl font-semibold tabular-nums ${accent ?? "text-gray-900"}`}>{value}</p>
-      {sub && <p className="text-xs text-gray-400 mt-1">{sub}</p>}
+    <div className="mesh-card p-5">
+      <p className="mesh-label mb-3">{label}</p>
+      <p className={`text-2xl font-display font-medium tabular-nums tracking-tight ${accent ?? ""}`}
+        style={{ color: accent ? undefined : "var(--mesh-text)" }}
+      >
+        {value}
+      </p>
+      {sub && <p className="text-xs mt-1.5" style={{ color: "var(--mesh-subtle)" }}>{sub}</p>}
     </div>
   );
 }

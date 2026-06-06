@@ -1,6 +1,16 @@
 # CleanCrawl demo seed set — exercises every code path
 # Live URLs (may need network)
 https://en.wikipedia.org/wiki/Web_crawler
+https://www.bbc.com/news/technology
+https://arstechnica.com/information-technology/
+https://blog.python.org
+https://blog.python.org/2024/01/python-313-released.html
+https://martinfowler.com/articles/microservices.html
+https://www.bbc.com/news/technology?page=50
+https://arstechnica.com/tag/artificial-intelligence/
+https://www.investopedia.com/terms/i/inflation.asp
+https://www.investopedia.com/terms/s/stockmarket.asp
+https://www.investopedia.com/terms/r/recession.asp
 
 # Fixtures (deterministic, no network needed)
 fixture://clean_article

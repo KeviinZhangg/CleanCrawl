@@ -2,14 +2,14 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 import type { CrawlStats } from "../../api/types";
 
 const TOOLTIP_STYLE = {
-  background: "#ffffff",
-  border: "1px solid #E5E7EB",
-  borderRadius: 8,
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  background: "#111111",
+  border: "1px solid rgba(255,255,255,0.1)",
+  borderRadius: 12,
+  fontFamily: "Inter, sans-serif",
   fontSize: 12,
-  color: "#111827",
+  color: "#ededed",
   padding: "8px 12px",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
 };
 
 export function BlockedBar({ stats }: { stats: CrawlStats }) {
@@ -19,7 +19,7 @@ export function BlockedBar({ stats }: { stats: CrawlStats }) {
   }));
 
   if (!data.length) return (
-    <p className="text-sm text-gray-400 py-8 text-center">No blocks recorded</p>
+    <p className="text-sm py-8 text-center" style={{ color: "var(--mesh-muted)" }}>No blocks recorded</p>
   );
 
   return (
@@ -27,7 +27,7 @@ export function BlockedBar({ stats }: { stats: CrawlStats }) {
       <BarChart data={data} layout="vertical" margin={{ left: 8, right: 16, top: 4, bottom: 4 }}>
         <XAxis
           type="number"
-          tick={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fill: "#9CA3AF" }}
+          tick={{ fontFamily: "Inter, sans-serif", fontSize: 11, fill: "#555555" }}
           axisLine={false}
           tickLine={false}
         />
@@ -35,17 +35,17 @@ export function BlockedBar({ stats }: { stats: CrawlStats }) {
           type="category"
           dataKey="reason"
           width={100}
-          tick={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 11, fill: "#6B7280" }}
+          tick={{ fontFamily: "Inter, sans-serif", fontSize: 11, fill: "#888888" }}
           axisLine={false}
           tickLine={false}
         />
         <Tooltip
           contentStyle={TOOLTIP_STYLE}
-          labelStyle={{ color: "#111827", fontWeight: 600 }}
-          itemStyle={{ color: "#4B5563" }}
-          cursor={{ fill: "rgba(79,70,229,0.05)" }}
+          labelStyle={{ color: "#ededed", fontWeight: 600 }}
+          itemStyle={{ color: "#888888" }}
+          cursor={{ fill: "rgba(168,180,255,0.06)" }}
         />
-        <Bar dataKey="count" fill="#4F46E5" radius={[0, 4, 4, 0]} barSize={18} />
+        <Bar dataKey="count" fill="#a8b4ff" radius={[0, 4, 4, 0]} barSize={18} />
       </BarChart>
     </ResponsiveContainer>
   );

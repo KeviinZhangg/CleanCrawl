@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { useArticle } from "../api/client";
 import { ArticleDetail } from "../components/ArticleDetail";
 import { ArticleTable } from "../components/ArticleTable";
+import { PageHeader } from "../components/PageHeader";
 
 export function ArticlePage() {
   const { id } = useParams();
@@ -11,27 +12,29 @@ export function ArticlePage() {
 
   if (!id) {
     return (
-      <div className="max-w-6xl mx-auto px-8 py-8">
-        <div className="mb-6">
-          <h1 className="text-xl font-semibold text-gray-900">Articles</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Extracted, deduplicated, and quality-scored content</p>
-        </div>
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
+        <PageHeader
+          label="Saved articles"
+          title="Extracted, deduplicated,"
+          accent="quality-scored content."
+          subtitle="Every article includes an explainable quality breakdown."
+        />
         <ArticleTable />
       </div>
     );
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-8 py-8">
+    <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
       <Link
         to="/articles"
-        className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-indigo-600 transition-colors mb-6"
+        className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors mesh-btn-ghost !rounded-lg"
       >
         <ArrowLeft size={14} />
         All Articles
       </Link>
-      {isLoading && <p className="text-sm text-gray-400">Loading…</p>}
-      {error && <p className="text-sm text-red-500">Article not found.</p>}
+      {isLoading && <p className="text-sm" style={{ color: "var(--mesh-muted)" }}>Loading…</p>}
+      {error && <p className="text-sm decision-blocked">Article not found.</p>}
       {article && <ArticleDetail article={article} />}
     </div>
   );

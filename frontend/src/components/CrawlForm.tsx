@@ -3,7 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { Play, Loader2 } from "lucide-react";
 import { useStartCrawl } from "../api/client";
 
-const DEMO_SEEDS = `fixture://clean_article
+const DEMO_SEEDS = `https://www.bbc.com/news/technology
+https://arstechnica.com/information-technology/
+https://blog.python.org
+https://blog.python.org/2024/01/python-313-released.html
+https://martinfowler.com/articles/microservices.html
+https://www.bbc.com/news/technology?page=50
+https://arstechnica.com/tag/artificial-intelligence/
+https://www.investopedia.com/terms/i/inflation.asp
+https://www.investopedia.com/terms/s/stockmarket.asp
+https://www.investopedia.com/terms/r/recession.asp
+fixture://clean_article
 fixture://broken_html
 fixture://category_page
 fixture://cloudflare
@@ -36,52 +46,47 @@ export function CrawlForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl space-y-5">
-      {/* Textarea */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1.5">
-          Seed URLs <span className="text-gray-400 font-normal">(one per line)</span>
-        </label>
-        <textarea
-          value={seeds}
-          onChange={(e) => setSeeds(e.target.value)}
-          rows={12}
-          className="w-full bg-white border border-gray-200 rounded-lg px-3 py-2.5 font-mono text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none placeholder-gray-300"
-          placeholder="https://example.com/article"
-        />
-      </div>
-
-      {/* Options */}
-      <div className="flex items-center gap-6">
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={render}
-            onChange={(e) => setRender(e.target.checked)}
-            className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+    <form onSubmit={handleSubmit} className="max-w-2xl space-y-6 animate-reveal-up">
+      <div className="mesh-card p-6 space-y-4">
+        <div>
+          <label className="mesh-label block mb-3">
+            Seed URLs <span style={{ color: "var(--mesh-subtle)" }}>— one per line</span>
+          </label>
+          <textarea
+            value={seeds}
+            onChange={(e) => setSeeds(e.target.value)}
+            rows={12}
+            className="mesh-input resize-none"
+            placeholder="https://example.com/article"
           />
-          <span className="text-sm text-gray-600">JS render fallback</span>
-        </label>
+        </div>
 
-        <div className="flex items-center gap-2">
-          <label className="text-sm text-gray-600">Max depth</label>
-          <input
-            type="number"
-            min={0}
-            max={3}
-            value={maxDepth}
-            onChange={(e) => setMaxDepth(Number(e.target.value))}
-            className="w-14 bg-white border border-gray-200 rounded-md px-2 py-1 text-sm text-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          />
+        <div className="flex items-center gap-8 pt-2">
+          <label className="flex items-center gap-2.5 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={render}
+              onChange={(e) => setRender(e.target.checked)}
+              className="w-4 h-4 rounded border-mesh-border bg-mesh-surface accent-mesh-accent"
+            />
+            <span className="text-sm" style={{ color: "var(--mesh-muted)" }}>JS render fallback</span>
+          </label>
+
+          <div className="flex items-center gap-2">
+            <label className="text-sm" style={{ color: "var(--mesh-muted)" }}>Max depth</label>
+            <input
+              type="number"
+              min={0}
+              max={3}
+              value={maxDepth}
+              onChange={(e) => setMaxDepth(Number(e.target.value))}
+              className="w-14 mesh-input !py-1.5 text-center !px-2"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Submit */}
-      <button
-        type="submit"
-        disabled={start.isPending}
-        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors"
-      >
+      <button type="submit" disabled={start.isPending} className="mesh-btn-primary">
         {start.isPending
           ? <Loader2 size={16} className="animate-spin" />
           : <Play size={16} />
@@ -90,7 +95,7 @@ export function CrawlForm() {
       </button>
 
       {start.isError && (
-        <p className="text-sm text-red-500">{(start.error as Error).message}</p>
+        <p className="text-sm decision-blocked">{(start.error as Error).message}</p>
       )}
     </form>
   );

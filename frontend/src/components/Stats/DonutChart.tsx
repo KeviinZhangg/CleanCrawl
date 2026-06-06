@@ -1,18 +1,17 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import type { CrawlStats } from "../../api/types";
 
-const COLORS = ["#059669", "#DC2626", "#D97706", "#6B7280"];
-const LABELS = ["Saved", "Blocked", "Duplicates", "Skipped"];
+const COLORS = ["#34d399", "#f87171", "#fbbf24", "#9ca3af"];
 
 const TOOLTIP_STYLE = {
-  background: "#ffffff",
-  border: "1px solid #E5E7EB",
-  borderRadius: 8,
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  background: "#111111",
+  border: "1px solid rgba(255,255,255,0.1)",
+  borderRadius: 12,
+  fontFamily: "Inter, sans-serif",
   fontSize: 12,
-  color: "#111827",
+  color: "#ededed",
   padding: "8px 12px",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
 };
 
 export function DonutChart({ stats }: { stats: CrawlStats }) {
@@ -24,7 +23,7 @@ export function DonutChart({ stats }: { stats: CrawlStats }) {
   ].filter((d) => d.value > 0);
 
   if (!data.length) return (
-    <p className="text-sm text-gray-400 py-8 text-center">No crawl data yet</p>
+    <p className="text-sm py-8 text-center" style={{ color: "var(--mesh-muted)" }}>No crawl data yet</p>
   );
 
   return (
@@ -34,7 +33,7 @@ export function DonutChart({ stats }: { stats: CrawlStats }) {
           data={data}
           innerRadius={55}
           outerRadius={82}
-          paddingAngle={2}
+          paddingAngle={3}
           dataKey="value"
           strokeWidth={0}
         >
@@ -44,15 +43,15 @@ export function DonutChart({ stats }: { stats: CrawlStats }) {
         </Pie>
         <Tooltip
           contentStyle={TOOLTIP_STYLE}
-          labelStyle={{ color: "#111827", fontWeight: 600 }}
-          itemStyle={{ color: "#4B5563" }}
+          labelStyle={{ color: "#ededed", fontWeight: 600 }}
+          itemStyle={{ color: "#888888" }}
           cursor={false}
         />
         <Legend
           iconType="circle"
           iconSize={8}
           formatter={(value) => (
-            <span style={{ fontSize: 12, color: "#4B5563", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <span style={{ fontSize: 12, color: "#888888", fontFamily: "Inter, sans-serif" }}>
               {value}
             </span>
           )}
