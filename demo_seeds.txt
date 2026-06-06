@@ -1,0 +1,21 @@
+# CleanCrawl demo seed set — exercises every code path
+# Live URLs (may need network)
+https://en.wikipedia.org/wiki/Web_crawler
+
+# Fixtures (deterministic, no network needed)
+fixture://clean_article
+fixture://broken_html
+fixture://category_page
+fixture://cloudflare
+fixture://near_dup_a
+fixture://near_dup_b
+
+# Duplicate URL variants (offline mapped to fixture://ai_news)
+https://example.com/article/ai-news
+https://example.com/article/ai-news?utm_source=twitter
+https://example.com/amp/article/ai-news
+https://example.com/mobile/article/ai-news
+https://example.com/print/article/ai-news
+
+# Trap URL
+https://example.com/archive/2021/05/page/400

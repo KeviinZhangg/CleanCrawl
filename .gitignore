@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Environment & secrets
+.env
+*.db
+
+# Node
+frontend/node_modules/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Cursor / Claude
+.cursor/
+.claude/
+
+# Build artifacts (keep frontend/dist for deploy — optional)
+# frontend/dist/

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JS Rendered Article About Web Standards</title>
+  <link rel="canonical" href="https://example.com/blog/js-article">
+</head>
+<body>
+<article>
+  <h1>JS Rendered Article About Web Standards</h1>
+  <p class="author">By Alex Developer</p>
+  <time datetime="2026-05-15">May 15, 2026</time>
+  <p>Modern web applications often render content client-side using JavaScript frameworks. This creates challenges for traditional crawlers that only parse static HTML. A browser-based fallback can render the page and extract the same clean content that users see in their browsers.</p>
+  <h2>Why Static Extraction Fails</h2>
+  <p>Single-page applications load an empty shell and populate content via API calls. Without executing JavaScript, crawlers see only script tags and empty divs. Playwright and similar tools solve this by running a headless browser.</p>
+  <h2>Responsible Use</h2>
+  <p>Browser rendering is expensive and should be used sparingly as a fallback, not the default. Rate limits and robots.txt rules still apply. This article demonstrates the before-and-after of JS rendering in the CleanCrawl pipeline for hackathon evaluation purposes.</p>
+</article>
+</body>
+</html>

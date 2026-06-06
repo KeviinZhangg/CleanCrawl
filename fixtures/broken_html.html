@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Broken Page Test</title>
+<link rel="canonical" href="https://example.com/blog/broken-page">
+</head>
+<body>
+<div><div><div>
+<main>
+<h1>Understanding Web Crawler Ethics</h1>
+<p>Web crawlers must balance the need for data with respect for website owners. This document discusses ethical crawling practices including robots.txt compliance, rate limiting, and transparent user agent identification. Without these practices, crawlers risk overloading servers and violating terms of service.</p>
+<h2>Rate Limiting Best Practices</h2>
+<p>Per-domain rate limits prevent any single crawler from dominating server resources. A delay of one to two seconds between requests is a common starting point. More aggressive crawling may trigger anti-bot systems and result in IP blocks or CAPTCHA challenges that halt data collection entirely.</p>
+<h3>Handling Messy HTML</h3>
+<p>Real-world pages often contain broken tags, deeply nested divs, and missing metadata. Robust extractors use recover-mode parsers and fallback chains to still pull useful content. This paragraph ensures sufficient word count for classification and extraction testing purposes across multiple scenarios in the test suite.</p>
+<p>Additional content about crawler traps, duplicate detection, and quality scoring rounds out this test fixture for messy HTML handling verification in the CleanCrawl pipeline implementation.</p>
+</main>
+<div class="sidebar">Related links and navigation noise that should not dominate extracted content from the main article body region of this broken HTML test page fixture.</div>
+</div>
+</div>
+<nav>Home About Contact Archives Tags Categories Search Login</nav>
+</body>
+</html>
