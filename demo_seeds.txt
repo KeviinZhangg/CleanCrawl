@@ -1,9 +1,6 @@
 # CleanCrawl demo seed set — exercises every code path
 # Live URLs (may need network)
 https://en.wikipedia.org/wiki/Web_crawler
-https://www.bbc.com/news/technology
-https://arstechnica.com/information-technology/
-https://blog.python.org
 
 # Fixtures (deterministic, no network needed)
 fixture://clean_article
