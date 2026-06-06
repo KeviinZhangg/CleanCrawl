@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Play, Loader2 } from "lucide-react";
 import { useStartCrawl } from "../api/client";
 
-const DEMO_SEEDS = `fixture://clean_article
+const DEMO_SEEDS = `https://www.bbc.com/news/technology
+https://arstechnica.com/information-technology/
+https://blog.python.org
+fixture://clean_article
 fixture://broken_html
 fixture://category_page
 fixture://cloudflare
